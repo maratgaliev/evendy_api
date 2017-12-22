@@ -1,0 +1,13 @@
+ru:
+  errors:
+    base: Произошла ошибка, попробуйте позже
+    events:
+      not_found: Событие не найдено
+      reached_limit: Извините, все места заняты
+      user_banned: Извините, вы забанены на сайте
+    categories:
+      not_found: Категория 
+    users:
+      not_found: Пользователь не найден
+      sign_in:
+        base: Неверный email или пароль
