@@ -1,4 +1,8 @@
 ru:
+  users:
+    decision_text_go: "У события '%{event_title}' (%{event_date}), новый участник: %{event_user}"
+    decision_text_no: "Участник %{event_user}, события '%{event_title}' (%{event_date}), решил не идти на мероприятие"
+    new_event: "На сайте http://evendy.ru создано событие: '%{event_title}' (%{event_date} в %{event_hours}), автор: %{event_user}"
   errors:
     base: Произошла ошибка, попробуйте позже
     events:

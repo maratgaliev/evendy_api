@@ -23,9 +23,12 @@ class Events::ApplyCommand < BaseCommand
 
   def create_visit(event:, user:)
     visit = Visit.where(event: event, user: user).first_or_initialize
+    tg = TelegramService.new(event, user)
     if visit.persisted?
+      tg.call(:no)
       visit.destroy
     else
+      tg.call(:go)
       visit.save
     end
     Right(visit)

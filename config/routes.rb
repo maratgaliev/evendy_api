@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  telegram_webhooks TelegramWebhooksController
+  
   devise_for :users, skip: [:registrations, :sessions]
   
   resources :categories

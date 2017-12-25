@@ -15,6 +15,7 @@ class Events::CreateCommand < BaseCommand
     event = Event.new(params)
     event.author_id = user.id
     if event.save
+      TelegramService.new(event, user).call(:new)
       Right(event)
     else
       Left(error(I18n.t('errors.base')))
