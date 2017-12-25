@@ -1,0 +1,2 @@
+TELEGRAM_API_KEY = '303391479:AAGmnbs3JdUHoQg3T5i_TWF7_SwD9Ld_fsY'
+BOT_NAME = 'evendy_bot'
