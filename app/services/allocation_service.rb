@@ -13,7 +13,7 @@ class AllocationService
   end
 
   def percentage
-    (100 / (@event.max_limit / @event.visits.size)) rescue 0
+    ((@event.visits.size * 100) / @event.max_limit) rescue 0
   end
 
   def user_decision?
