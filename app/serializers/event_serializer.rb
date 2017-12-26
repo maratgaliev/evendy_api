@@ -1,5 +1,5 @@
 class EventSerializer < ActiveModel::Serializer
-  attributes :id, :title, :description, :start_at, :end_at, :author_name, :price, :short_description, :max_limit, :address, :latitude, :longitude, :author_id, :author_name, :slug_url, :date_string, :percentage, :visits_count, :users, :decision
+  attributes :id, :title, :description, :start_at, :end_at, :author_name, :price, :short_description, :max_limit, :address, :latitude, :longitude, :author_id, :author_name, :telegram, :slug_url, :date_string, :percentage, :visits_count, :users, :decision
 
   has_many :users
   def event
