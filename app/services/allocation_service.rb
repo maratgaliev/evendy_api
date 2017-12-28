@@ -1,5 +1,5 @@
 class AllocationService
-  def initialize(event, user=nil)
+  def initialize(event, user)
     @event = event
     @user = user
   end

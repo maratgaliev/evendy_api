@@ -2,11 +2,14 @@ class Events::ApplyCommand < BaseCommand
   
   step :check_limit
   step :authorize
-  step :create_visit
+  step :call_visit
 
   def check_limit(id:, user:)
     event = Event.find(id)
-    if AllocationService.new(event, user).empty_slots?
+    srv = AllocationService.new(event, user)
+    puts srv.user_decision?
+    (return Right(event: event, user: user)) if srv.user_decision?
+    if srv.empty_slots?
       Right(event: event, user: user)
     else
       Left(error(I18n.t('errors.events.reached_limit')))
@@ -21,7 +24,7 @@ class Events::ApplyCommand < BaseCommand
     end
   end
 
-  def create_visit(event:, user:)
+  def call_visit(event:, user:)
     visit = Visit.where(event: event, user: user).first_or_initialize
     tg = TelegramService.new(event, user)
     if visit.persisted?
