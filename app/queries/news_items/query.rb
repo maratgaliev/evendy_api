@@ -3,14 +3,14 @@ class NewsItems::Query
     
   PER_PAGE = 100
 
-  step :categories_scope
+  step :news_items_scope
   step :paginate
 
   def self.index_query(params={}, &block)
     new.call(params: params, &block)
   end
 
-  def categories_scope(params:)
+  def news_items_scope(params:)
     Right(news_items: NewsItem, params: params)
   end
 

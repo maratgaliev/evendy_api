@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/stats', to: 'stat_results#index', as: 'stats'
+
   as :user do
     post '/users/sign_up', to: 'auth/registrations#create'
     post '/users/sign_in', to: 'auth/sessions#create'
