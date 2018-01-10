@@ -30,6 +30,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.6'
   gem 'rspec-its'
+  gem 'annotate'
 end
 
 group :test do
@@ -40,3 +41,4 @@ end
 
 gem 'mina', require: false
 gem 'mina-puma', require: false,  github: 'untitledkingdom/mina-puma'
+gem 'swagger-docs'

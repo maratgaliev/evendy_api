@@ -20,4 +20,5 @@ Rails.application.routes.draw do
     delete '/users/sign_out', to: 'auth/sessions#destroy'
   end
 
+  get '/docs' => redirect('/swagger/dist/index.html?url=/apidocs/api-docs.json')
 end

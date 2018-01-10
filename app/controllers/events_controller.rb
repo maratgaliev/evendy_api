@@ -1,5 +1,36 @@
 class EventsController < BaseController
+  
+  swagger_controller :events, 'Events'
+
+  swagger_api :index do
+    summary 'Get all the events'
+    notes 'Should be used for fetching all events'
+    response :unauthorized
+    response :ok, "Success"
+  end
+  swagger_api :create do
+    summary 'Creating event'
+    notes 'Should be used for creating events'
+    param :form, 'event[title]', :string, :required, 'title'
+    param :form, 'event[description]', :text, :required, 'description'
+  end
+  swagger_api :show do
+    summary 'Get event'
+    notes 'Should be used for fetching a event'
+    param :path, :id, :string, :id
+    response :unauthorized
+    response :ok, "Success"
+  end
+  swagger_api :destroy do
+    summary 'Destroy event'
+    notes 'Should be used for destroying a event'
+    param :path, :id, :string, :id
+    response :unauthorized
+    response :ok, "Success"
+  end
+
   before_action :authenticate_user!, only: [:create, :update, :destroy, :go]
+  
   def index
     Events::Query.index_query(params) do |q|
       q.success {|events| api_response(events) }
