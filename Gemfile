@@ -42,3 +42,4 @@ end
 gem 'mina', require: false
 gem 'mina-puma', require: false,  github: 'untitledkingdom/mina-puma'
 gem 'swagger-docs'
+gem 'rollbar'
