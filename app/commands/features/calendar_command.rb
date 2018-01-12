@@ -1,5 +1,3 @@
-require 'icalendar'
-
 class Features::CalendarCommand < BaseCommand
   step :generate
 
