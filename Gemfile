@@ -43,3 +43,4 @@ gem 'mina', require: false
 gem 'mina-puma', require: false
 gem 'swagger-docs'
 gem 'rollbar'
+gem 'icalendar'

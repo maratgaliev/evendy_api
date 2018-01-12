@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :events do
     member do
       post :apply
+      post :calendar, to: 'features#calendar'
     end
   end
 
