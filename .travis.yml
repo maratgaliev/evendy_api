@@ -7,7 +7,10 @@ addons:
   postgresql: '9.5'
 services:
   - postgresql
+before_script:
+  - psql -c 'create database evendy_api_test;' -U postgres  
 env:
   - RAILS_ENV=test
 script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rspec
