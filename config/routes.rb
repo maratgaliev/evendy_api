@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       post :calendar, to: 'features#calendar'
     end
   end
+  resources :users, only: [:show]
 
   get '/stats', to: 'stat_results#index', as: 'stats'
 
