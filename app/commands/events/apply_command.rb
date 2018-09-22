@@ -7,7 +7,6 @@ class Events::ApplyCommand < BaseCommand
   def check_limit(id:, user:)
     event = Event.find(id)
     srv = AllocationService.new(event, user)
-    puts srv.user_decision?
     (return Right(event: event, user: user)) if srv.user_decision?
     if srv.empty_slots?
       Right(event: event, user: user)

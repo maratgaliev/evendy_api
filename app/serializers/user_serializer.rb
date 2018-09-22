@@ -34,8 +34,24 @@
 #
 
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :phone, :name, :avatar
+  attributes :id, :email, :phone, :name, :avatar, :games_visited, :created_at, :date_string, :pace, :shooting, :passing, :dribbling, :defending, :physicality, :position, :position, :label_list
+  
+  def user
+    UserDecorator.decorate(object)
+  end
+
   def avatar
     object.avatar.url(:avatar_main_image)
   end
+
+  def date_string
+    user.date_string
+  end
+
+  def games_visited
+    old_visits = 0
+    old_visits = object.visits_count if object.visits_count
+    object.visits.size + old_visits
+  end
+
 end

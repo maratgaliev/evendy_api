@@ -41,8 +41,14 @@ class User < ApplicationRecord
   has_many :events, foreign_key: :author_id, dependent: :destroy, inverse_of: :author
   has_many :visits, dependent: :destroy
   mount_uploader :avatar, AvatarUploader
+  acts_as_taggable_on :labels
+  as_enum :position, %i{forward goalkeeper midfielder defender universal}
 
   def remember_me
     true
+  end
+
+  def to_param
+    "#{id}-#{name.parameterize}"
   end
 end

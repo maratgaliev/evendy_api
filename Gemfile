@@ -11,7 +11,7 @@ gem 'dry-transaction'
 gem 'will_paginate'
 gem 'rack-cors'
 gem 'pg'
-gem 'telegram-bot'
+gem 'telegram-bot', '0.13.1'
 gem 'geocoder'
 gem 'draper'
 gem 'carrierwave'
@@ -31,6 +31,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'rspec-its'
   gem 'annotate'
+  gem 'bullet'
 end
 
 group :test do
@@ -44,3 +45,5 @@ gem 'mina-puma', require: false
 gem 'swagger-docs'
 gem 'rollbar'
 gem 'icalendar'
+gem 'acts-as-taggable-on', '~> 6.0'
+gem 'simple_enum'
