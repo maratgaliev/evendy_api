@@ -31,6 +31,13 @@
 #  bank_payment_page      :string
 #  accept_rights          :boolean          default(TRUE)
 #  is_banned              :boolean          default(FALSE)
+#  pace                   :integer          default(0)
+#  shooting               :integer          default(0)
+#  passing                :integer          default(0)
+#  dribbling              :integer          default(0)
+#  defending              :integer          default(0)
+#  physicality            :integer          default(0)
+#  position_cd            :integer
 #
 
 class User < ApplicationRecord
@@ -43,6 +50,10 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   acts_as_taggable_on :labels
   as_enum :position, %i{forward goalkeeper midfielder defender universal}
+
+  def rating
+    [pace, shooting, passing, dribbling, defending, physicality].sum  / 6
+  end
 
   def remember_me
     true
