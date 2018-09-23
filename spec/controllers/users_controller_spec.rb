@@ -16,7 +16,7 @@ describe UsersController, type: :request do
   describe 'GET /users/:id' do
     context 'empty JWT token' do
       before { get "/users/#{user.id}", headers: { 'Content-Type' => 'application/json' } }
-      its(:status) { is_expected.to eq 401 }
+      its(:status) { is_expected.to eq 200 }
     end
 
     context 'with JWT token' do
