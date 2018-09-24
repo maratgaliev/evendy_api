@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   telegram_webhooks TelegramWebhooksController
   
+  require 'sidekiq/web'
+
+  mount Sidekiq::Web => '/admin/sidekiq'
+
   devise_for :users, skip: [:registrations, :sessions]
   
   resources :categories
@@ -12,7 +16,7 @@ Rails.application.routes.draw do
       post :calendar, to: 'features#calendar'
     end
   end
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index]
 
   get '/stats', to: 'stat_results#index', as: 'stats'
 

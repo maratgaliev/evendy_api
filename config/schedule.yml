@@ -1,0 +1,4 @@
+rating_calcuation_worker:
+  cron: "0 0 * * *"
+  class: "RatingCalculationWorker"
+  queue: default

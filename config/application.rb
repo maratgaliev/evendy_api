@@ -19,7 +19,6 @@ module EvendyApi
     config.time_zone = 'Europe/Moscow'
     config.api_only = true
     config.action_dispatch.rescue_responses['JWT::VerificationError'] = :unauthorized
-    
     config.action_dispatch.rescue_responses['JWT::DecodeError'] = :unauthorized
   end
 end

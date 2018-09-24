@@ -34,7 +34,7 @@
 #
 
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :phone, :name, :avatar, :games_visited, :created_at, :date_string, :pace, :shooting, :passing, :dribbling, :defending, :physicality, :position, :position, :label_list, :rating
+  attributes :id, :email, :phone, :name, :avatar, :games_visited, :created_at, :date_string, :pace, :shooting, :passing, :dribbling, :defending, :physicality, :position, :position, :label_list, :cached_rating
   
   def user
     UserDecorator.decorate(object)

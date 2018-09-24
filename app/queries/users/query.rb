@@ -1,8 +1,7 @@
-class Users::MainQuery
+class Users::Query
   include Dry::Transaction
-  PER_PAGE = 10
   step :users_scope
-  step :paginate
+  step :rating
 
   def self.index_query(params={}, &block)
     new.call(params: params, &block)
@@ -12,8 +11,8 @@ class Users::MainQuery
     Right(users: User, params: params)
   end
 
-  def paginate(users:, params:)
-    Right(users.ordered.paginate(page: params[:page], per_page: PER_PAGE))
+  def rating(users:, params:)
+    Right(users.rated.limit(20))
   end
 end
   
