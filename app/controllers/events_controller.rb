@@ -45,6 +45,10 @@ class EventsController < BaseController
   def create
     run_command(Events::CreateCommand, user: current_user, params: event_params)
   end
+
+  def cancel
+    run_command(Events::CancelCommand, user: current_user, id: params[:id])
+  end
   
   def update
     run_command(

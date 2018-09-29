@@ -35,6 +35,7 @@ class Event < ApplicationRecord
   before_save :set_author_name
   geocoded_by :address
   reverse_geocoded_by :latitude, :longitude
+  as_enum :state, %i{new cancelled}
 
   def to_param
     "#{id}-#{title.parameterize}"

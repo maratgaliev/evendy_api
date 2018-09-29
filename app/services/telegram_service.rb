@@ -9,6 +9,7 @@ class TelegramService
       send_to_telegram(go_text(:go)) if method == :go
       send_to_telegram(go_text(:no)) if method == :no
       send_to_telegram(new_text) if method == :new
+      send_to_telegram(cancel_text) if method == :cancel
     end
   end
 
@@ -18,6 +19,10 @@ class TelegramService
 
   def new_text
     I18n.t("users.new_event", event_date: @event.start_at.strftime('%d/%m/%Y'), event_hours: @event.start_at.strftime('%H:%M'), event_title: @event.title, event_user: @event.author.name, event_url: "http://evendy.ru/events/#{@event.to_param}")
+  end
+
+  def cancel_text
+    I18n.t("users.cancel_event", event_date: @event.start_at.strftime('%d/%m/%Y'), event_hours: @event.start_at.strftime('%H:%M'), event_title: @event.title, event_url: "http://evendy.ru/events/#{@event.to_param}")
   end
 
   def send_to_telegram(text)

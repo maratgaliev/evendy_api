@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :news_items
   resources :events do
     member do
+      post :cancel
       post :apply
       post :calendar, to: 'features#calendar'
     end

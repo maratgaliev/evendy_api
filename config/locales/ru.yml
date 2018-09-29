@@ -3,6 +3,7 @@ ru:
     decision_text_go: "У события '%{event_title} (%{event_url})' (%{event_date}), новый участник: %{event_user}"
     decision_text_no: "Участник %{event_user}, события '%{event_title} (%{event_url})' (%{event_date}), решил не идти на мероприятие"
     new_event: "На сайте http://evendy.ru создано событие: '%{event_title} (%{event_url})' (%{event_date} в %{event_hours}), автор: %{event_user}"
+    cancel_event: "Событие отменено: '%{event_title} (%{event_url})' (%{event_date} в %{event_hours})"
   errors:
     base: Произошла ошибка, попробуйте позже
     events:
